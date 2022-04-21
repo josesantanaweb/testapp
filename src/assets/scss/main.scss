@@ -5,27 +5,5 @@
  */
 
 @import 'variables';
-@import './vendor/reboot';
-@import './vendor/boostrap-grid';
-@import './vendor/boostrap-utilities';
-@import './components/header';
-@import './components/button';
 @import './pages/home';
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
-
-.toggle {
-	cursor: pointer;
-}
-
-.main {
-	position: relative;
-	height: 100vh;
-	background: url('../images/bg.png') var(--body-bg);
-	background-size: cover;
-	background-repeat: no-repeat;
-}
-
-.wrapper {
-	width: var(--container-width);
-	margin: 0 auto;
-}
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap');
