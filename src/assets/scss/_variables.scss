@@ -1,41 +1,48 @@
 :root {
-  // Colors
-  --blue: #07689f;
-  --indigo: #6610f2;
-  --purple: #6f42c1;
-  --pink: #d63384;
-  --red: #dc3545;
-  --orange: #fd7e14;
-  --yellow: #ffc107;
-  --green: #198754;
-  --teal: #20c997;
-  --cyan: #0dcaf0;
-  --white: #ffffff;
-  --gray: #a2d5f2;
-  --gray-dark: #4ea6da;
-  --gray-100: #f8f9fa;
-  --gray-200: #e9ecef;
-  --gray-300: #dee2e6;
-  --gray-400: #ced4da;
-  --gray-500: #adb5bd;
-  --gray-600: #6c757d;
-  --gray-700: #495057;
-  --gray-800: #343a40;
-  --gray-900: #212529;
-  --primary: #1da1b7;
-  --secondary: #f7931e;
-  --success: #11d3bc;
-  --info: #0d6efd;
-  --warning: #ffc107;
-  --danger: #f67280;
-  --light: #fafafa;
-  --dark: #2f3c48;
-  // Globals
-  --body-font-family: "Poppins", sans-serif;
-  --body-font-size: 1rem;
-  --body-font-weight: 400;
-  --body-line-height: 1.5;
-  --body-color: #ffffff;
-  --body-bg: #081034;
-  --container-width: 1600px;
+	// Colors
+	--blue: #07689f;
+	--indigo: #6610f2;
+	--purple: #6f42c1;
+	--pink: #d63384;
+	--red: #dc3545;
+	--orange: #fd7e14;
+	--yellow: #ffc107;
+	--green: #198754;
+	--teal: #20c997;
+	--cyan: #0dcaf0;
+	--white: #ffffff;
+	--gray: #a2d5f2;
+	--gray-dark: #4ea6da;
+	--gray-100: #f8f9fa;
+	--gray-200: #e9ecef;
+	--gray-300: #dee2e6;
+	--gray-400: #ced4da;
+	--gray-500: #adb5bd;
+	--gray-600: #6c757d;
+	--gray-700: #495057;
+	--gray-800: #343a40;
+	--gray-900: #212529;
+	--primary-color: hsl(189, 73%, 42%);
+	--primary-color-light: hsl(189, 73%, 45%);
+	--primary-color-dark: hsl(189, 73%, 38%);
+	--secondary-color: #f7931e;
+	--success-color: #11d3bc;
+	--info-color: #0d6efd;
+	--warning-color: #ffc107;
+	--danger-color: #f67280;
+	--light-color: #fafafa;
+	--dark-color: #2f3c48;
+	// Globals
+	--body-font-family: 'Poppins', sans-serif;
+	--body-font-size: 1rem;
+	--body-font-weight: 400;
+	--body-line-height: 1.5;
+	--body-color: #ffffff;
+	--body-bg: #081034;
+	--container-width: 1600px;
+	// Buttons
+	--padding-vertical-button: 0.5rem;
+	--padding-horizontal-button: 1.5rem;
+	--font-size-button: 0.875rem;
+	--border-radius-button: 1.5rem;
 }
