@@ -4,7 +4,7 @@
 
 ![image](https://i.ibb.co/j5YHpT8/22.png)
 
-Este proyecto se desarrollo en base a a cada uno de los pasos dejados en el reposition de * [Zemoga](https://github.com/zemoga/ui-test#zemoga-front-end-development---candidate-test-v21). Para el desarrollo se usaron las siquientes tecnologias:
+This project was developed based on each step shown in the Zemoga repository [Zemoga](https://github.com/zemoga/ui-test#zemoga-front-end-development---candidate-test-v21)For the develpment stage, we used the following techonologies:
 
 1. React
 2. Node
@@ -12,27 +12,27 @@ Este proyecto se desarrollo en base a a cada uno de los pasos dejados en el repo
 4. MongoDB
 5. Typescript
 
-entre otras librerias JS que fueron utililes para realizar el proyecto.
+There are other JS libreries that were useful to the project
 
 ## Getting Started
 
 ### Installation
 
-_El proyecto consta de dos carpeta una para el front y otra para el backend ._
+_The project consists in two folders, one for the front-end and other for the back-end area ._
 
-1. Hacemos npm i en la carpeta backend
+1. We start the npm by typing 'npm i' on the back-end
    ```sh
    npm install
    ```
-2. Luego hacemos npm start y ya deberia lenvatar nuestro servidor backend
+2. After that, we type 'npm start' and our server should be running
    ```sh
    npm start
    ```
-3. Hacemos npm i en la carpeta client
+3. We make 'npm i' in the client folder
    ```sh
    npm install
    ```
-3. Y luego hacemos de nuevo npm start para iniciar el front del proyecto
+4. We type again 'npm start' to start the front-end area of the project
    ```sh
    npm start
    ```
