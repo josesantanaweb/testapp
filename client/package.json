@@ -45,17 +45,22 @@
     "@reduxjs/toolkit": "^1.7.1",
     "@types/react-redux": "^7.1.22",
     "@types/react-router-dom": "^5.3.3",
+    "@types/react-slick": "^0.23.8",
     "axios": "^0.26.1",
     "boxicons": "^2.1.2",
     "classnames": "^2.3.1",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.28.0",
+    "moment": "^2.29.3",
+    "moment-timezone": "^0.5.34",
     "prettier": "^2.5.1",
     "react-icons": "^4.3.1",
+    "react-moment": "^1.1.2",
     "react-redux": "^7.2.6",
     "react-responsive": "^9.0.0-beta.6",
     "react-router-dom": "^6.2.1",
+    "react-slick": "^0.29.0",
     "sass": "^1.50.0"
   }
 }

@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
+import Moment from 'react-moment';
+import 'moment-timezone';
 import { BiDislike, BiLike } from 'react-icons/bi';
-import kanye from 'assets/img/kanye.png';
 import {Ruling} from 'interfaces';
 import RulingsServices from 'services/rulingsService';
 
@@ -34,8 +35,6 @@ const RulingGrid:React.FC<RulingGridProps> = ({item}) => {
 		setButtonDisabled(false);
 	};
 
-	console.log(positive);
-
 	const handleSendVotes = async () => {
 		const data = {
 			votes: {
@@ -53,7 +52,7 @@ const RulingGrid:React.FC<RulingGridProps> = ({item}) => {
 
 	return (
 		<div className="rulings__item">
-			<img src={kanye} alt="kanye" className="rulings__thumb"/>
+			<img src={require(`../../assets/img/${item.picture}`)} alt="kanye" className="rulings__thumb"/>
 			<div className="rulings__content">
 				<div className="rulings__famous">
 					<div className={`rulings__like like-title ${positive > negative ? 'like' : 'dislike'}`}>
@@ -67,7 +66,7 @@ const RulingGrid:React.FC<RulingGridProps> = ({item}) => {
 					<p>{item.description}</p>
 				</div>
 				<div className="rulings__date">
-					<p>{item.updatedAt} in {item.category}</p>
+					<p><Moment fromNow ago>{item.updatedAt}</Moment> in {item.category}</p>
 				</div>
 				<div className="rulings__votes">
 					<div className={`rulings__like like ${activeLike && 'is-active'}`} onClick={handleLike}>
@@ -81,10 +80,10 @@ const RulingGrid:React.FC<RulingGridProps> = ({item}) => {
 				<div className="rulings__points">
 					<div className="rulings__positives" style={{width: `${positive}%`}}>
 						<BiLike size={20}/>
-						<p>{positive.toFixed(1)}%</p>
+						<p>{(positive).toFixed(1)}%</p>
 					</div>
 					<div className="rulings__negatives" style={{width: `${negative}%`}}>
-						<p>{negative.toFixed(1)}%</p>
+						<p>{(negative).toFixed(1)}%</p>
 						<BiDislike size={20}/>
 					</div>
 				</div>

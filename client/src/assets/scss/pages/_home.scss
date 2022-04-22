@@ -471,18 +471,12 @@ main h2 {
 }
 
 .rulings__select {
-	font-size: 1rem;
+	font-size: 0.875rem;
 	border: 1px solid var(--color-darker-gray);
 	color: var(--color-darker-gray);
 	height: 36px;
 	min-width: 136px;
-}
-
-.rulings__items {
-	display: grid;
-	align-items: center;
-	grid-template-columns: 1fr;
-	grid-gap: 2rem;
+	padding: 0 1rem;
 }
 
 .rulings__list {
@@ -618,11 +612,13 @@ main h2 {
 	left: 0;
 	top: 0;
 	z-index: 10;
+	cursor: default;
 }
 
 .rulings__like.like-title {
 	position: absolute;
 	left: -35px;
+	cursor: default;
 }
 
 .rulings__like.like {
@@ -841,10 +837,17 @@ main h2 {
 
 	.rulings__items {
 		grid-template-columns: repeat(2, 1fr);
+		display: grid;
+		grid-gap: 2rem;
 	}
 
 	.rulings__list {
 		display: grid;
+	}
+
+	.rulings__list .rulings__item {
+		display: grid;
+		grid-template-columns: 200px 40% 1fr;
 	}
 }
 

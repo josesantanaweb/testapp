@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
+import Moment from 'react-moment';
+import 'moment-timezone';
 import { BiDislike, BiLike } from 'react-icons/bi';
-import kanye from 'assets/img/kanye.png';
 import {Ruling} from 'interfaces';
 import RulingsServices from 'services/rulingsService';
 
@@ -34,8 +35,6 @@ const RulingList:React.FC<RulingListProps> = ({item}) => {
 		setButtonDisabled(false);
 	};
 
-	console.log(positive);
-
 	const handleSendVotes = async () => {
 		const data = {
 			votes: {
@@ -58,7 +57,7 @@ const RulingList:React.FC<RulingListProps> = ({item}) => {
 					positive > negative ? <BiLike size={20}/> : <BiDislike size={20}/>
 				}
 			</div>
-			<img src={kanye} alt="kanye" className="rulings__thumb"/>
+			<img src={require(`../../assets/img/${item.picture}`)} alt="kanye" className="rulings__thumb"/>
 			<div className="rulings__mask"></div>
 			<div className="rulings__content">
 				<div className="rulings__famous">
@@ -70,7 +69,7 @@ const RulingList:React.FC<RulingListProps> = ({item}) => {
 			</div>
 			<div className="rulings__right">
 				<div className="rulings__date">
-					<p>{item.updatedAt} in {item.category}</p>
+					<p><Moment fromNow ago>{item.updatedAt}</Moment> in {item.category}</p>
 				</div>
 				<div className="rulings__votes">
 					<div className={`rulings__like like ${activeLike && 'is-active'}`} onClick={handleLike}>
@@ -93,42 +92,6 @@ const RulingList:React.FC<RulingListProps> = ({item}) => {
 	 		</div>
 	 	</div>
 		</div>
-	// <div className="rulings__content">
-	// 	<div className="rulings__famous">
-	// 		<div className={`rulings__like like-title ${positive > negative ? 'like' : 'dislike'}`}>
-	// 			{
-	// 				positive > negative ? <BiLike size={20}/> : <BiDislike size={20}/>
-	// 			}
-	// 		</div>
-	// 		<h2>{item.name}</h2>
-	// 	</div>
-	// 	<div className="rulings__description">
-	// 		<p>{item.description}</p>
-	// 	</div>
-	// 	<div className="rulings__date">
-	// 		<p>{item.updatedAt} in {item.category}</p>
-	// 	</div>
-	// 	<div className="rulings__votes">
-	// 		<div className={`rulings__like like ${activeLike && 'is-active'}`} onClick={handleLike}>
-	// 			<BiLike size={20}/>
-	// 		</div>
-	// 		<div className={`rulings__like dislike ${activeDisLike && 'is-active'}`} onClick={handleDiskLike}>
-	// 			<BiDislike size={20}/>
-	// 		</div>
-	// 		<button type="button" className="rulings__button" onClick={handleSendVotes} disabled={buttonDisabled}>{labelButton}</button>
-	// 	</div>
-	// 	<div className="rulings__points">
-	// 		<div className="rulings__positives" style={{width: `${positive}%`}}>
-	// 			<BiLike size={20}/>
-	// 			<p>{positive.toFixed(1)}%</p>
-	// 		</div>
-	// 		<div className="rulings__negatives" style={{width: `${negative}%`}}>
-	// 			<p>{negative.toFixed(1)}%</p>
-	// 			<BiDislike size={20}/>
-	// 		</div>
-	// 	</div>
-	// </div>
-
 	);
 };
 

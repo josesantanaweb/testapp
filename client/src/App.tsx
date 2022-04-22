@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import MediaQuery from 'react-responsive';
+import Slider from "react-slick";
 import Header from 'components/Header';
 import Menu from 'components/Menu';
 import Banner from 'components/Banner';
@@ -14,6 +15,16 @@ const App = () => {
 	const [rulings, setRulings] = useState([]);
 	const [view, setView] = useState("list");
 
+	const settings = {
+		dots: false,
+		infinite: true,
+		autoplay: true,
+		speed: 500,
+		slidesToShow: 1,
+		slidesToScroll: 1
+	};
+
+
 	useEffect(() => {
 		getRulings();
 	}, []);
@@ -27,6 +38,10 @@ const App = () => {
 		}
 	};
 
+	const onChangeView = (e: any) => {
+		setView(e.target.value);
+	};
+
 	return (
 		<div className="main">
 			<Menu />
@@ -38,14 +53,14 @@ const App = () => {
 						<div className="rulings__top">
 							<h3 className="rulings__heading">Previous Rulings</h3>
 							<MediaQuery minWidth={769}>
-								<select name="view" className="rulings__select">
-									<option value="grid">Grid</option>
+								<select name="view" className="rulings__select" onChange={onChangeView}>
 									<option value="list">List</option>
+									<option value="grid">Grid</option>
 								</select>
 							</MediaQuery>
 						</div>
 						{
-							view !== "list"
+							view === "list"
 								?
 								<>
 									<MediaQuery minWidth={769}>
@@ -60,7 +75,7 @@ const App = () => {
 										</div>
 									</MediaQuery>
 									<MediaQuery maxWidth={768}>
-										<div className="rulings__items">
+										<Slider {...settings}>
 											{
 												rulings && rulings.map((item: Ruling, index: number) => (
 													<RulingGrid
@@ -69,20 +84,36 @@ const App = () => {
 													/>
 												))
 											}
-										</div>
+										</Slider>
 									</MediaQuery>
 								</>
 								:
-								<div className="rulings__items">
-									{
-										rulings && rulings.map((item: Ruling, index: number) => (
-											<RulingGrid
-												key={index}
-												item={item}
-											/>
-										))
-									}
-								</div>
+								<>
+									<MediaQuery minWidth={769}>
+										<div className="rulings__items">
+											{
+												rulings && rulings.map((item: Ruling, index: number) => (
+													<RulingGrid
+														item={item}
+														key={index}
+													/>
+												))
+											}
+										</div>
+									</MediaQuery>
+									<MediaQuery maxWidth={768}>
+										<Slider {...settings}>
+											{
+												rulings && rulings.map((item: Ruling, index: number) => (
+													<RulingGrid
+														item={item}
+														key={index}
+													/>
+												))
+											}
+										</Slider>
+									</MediaQuery>
+								</>
 						}
 					</div>
 				</main>

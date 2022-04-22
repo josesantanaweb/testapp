@@ -14,16 +14,16 @@ const Header:React.FC<HeaderProps> = () => {
 				</button>
 				<ul className="nav__links">
 					<li>
-						<a href="#">Past Trials</a>
+						<a href="www.google.com">Past Trials</a>
 					</li>
 					<li>
-						<a href="#">How It Works</a>
+						<a href="www.google.com">How It Works</a>
 					</li>
 					<li>
-						<a href="#">Login / Sign Up</a>
+						<a href="www.google.com">Login / Sign Up</a>
 					</li>
 					<li>
-						<form action="javascript:void(0)">
+						<form action="www.google.com">
 							<input className="nav__search-input" aria-label="search" type="text" />
 							<button className="nav__search icon-button" type="submit">
 								<img src={searchIcon} alt="search" />
