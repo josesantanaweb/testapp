@@ -19,6 +19,7 @@ const RulingGrid:React.FC<RulingGridProps> = ({item}) => {
 	const [activeDisLike, setActiveDisLike] = useState(false);
 	const [labelButton, setLabelButton] = useState("Vote Now");
 	const [buttonDisabled, setButtonDisabled] = useState(true);
+	const [copy, setCopy] = useState(false);
 
 
 	const handleLike = () => {
@@ -45,6 +46,7 @@ const RulingGrid:React.FC<RulingGridProps> = ({item}) => {
 		try {
 			await RulingsServices.editRuling(item._id, data);
 			setLabelButton("Vote Again");
+			setCopy(true);
 		} catch (error) {
 			console.log(error);
 		}
@@ -66,7 +68,11 @@ const RulingGrid:React.FC<RulingGridProps> = ({item}) => {
 					<p>{item.description}</p>
 				</div>
 				<div className="rulings__date">
-					<p><Moment fromNow ago>{item.updatedAt}</Moment> in {item.category}</p>
+					{
+						copy
+							? <p>Thank you for your vote!</p>
+							: <p><Moment fromNow ago>{item.updatedAt}</Moment> in {item.category}</p>
+					}
 				</div>
 				<div className="rulings__votes">
 					<div className={`rulings__like like ${activeLike && 'is-active'}`} onClick={handleLike}>

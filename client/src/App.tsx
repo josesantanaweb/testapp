@@ -40,6 +40,7 @@ const App = () => {
 
 	const onChangeView = (e: any) => {
 		setView(e.target.value);
+		getRulings();
 	};
 
 	return (
