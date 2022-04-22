@@ -2,6 +2,8 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://i.ibb.co/j5YHpT8/22.png)
 
+![image](https://i.ibb.co/j5YHpT8/22.png)
+
 Este proyecto se desarrollo en base a a cada uno de los pasos dejados en el reposition de * [Zemoga](https://github.com/zemoga/ui-test#zemoga-front-end-development---candidate-test-v21). Para el desarrollo se usaron las siquientes tecnologias:
 
 1. React
