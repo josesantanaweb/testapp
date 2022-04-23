@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import Moment from 'react-moment';
 import 'moment-timezone';
 import { BiDislike, BiLike } from 'react-icons/bi';
@@ -10,27 +10,37 @@ export interface RulingListProps {
 }
 
 const RulingList:React.FC<RulingListProps> = ({item}) => {
-	const positiveData = (item.votes.positive * 100) / (item.votes.positive + item.votes.negative);
-	const negativeData = (item.votes.negative * 100) / (item.votes.positive + item.votes.negative);
+	const [positive, setPositive] = useState(0);
+	const [negative, setNegative] = useState(0);
 
-	const [positive, setPositive] = useState(positiveData);
-	const [negative, setNegative] = useState(negativeData);
+	const [originalPositive, setOriginalPositive] =  useState(item.votes.positive);
+	const [originalNegative, setOriginalNegative] =  useState(item.votes.negative);
 	const [activeLike, setActiveLike] = useState(false);
 	const [activeDisLike, setActiveDisLike] = useState(false);
 	const [labelButton, setLabelButton] = useState("Vote Now");
 	const [buttonDisabled, setButtonDisabled] = useState(true);
 	const [copy, setCopy] = useState(false);
 
+	useEffect(() => {
+		const positiveData = (item.votes.positive * 100) / (item.votes.positive + item.votes.negative);
+	  const negativeData = (item.votes.negative * 100) / (item.votes.positive + item.votes.negative);
+		setPositive(positiveData);
+		setNegative(negativeData);
+	}, [item]);
 
 	const handleLike = () => {
-		setPositive(positive + 1);
+		setPositive(((positive + 1) * 100 / (positive + 1 + negative)));
+		setNegative((negative * 100 / (positive + 1 + negative)));
+		setOriginalPositive(originalPositive + 1);
 		setActiveLike(true);
 		setActiveDisLike(false);
 		setButtonDisabled(false);
 	};
 
 	const handleDiskLike = () => {
-		setNegative(negative + 1);
+		setNegative(((negative + 1) * 100 / (positive + 1 + negative)));
+		setPositive((positive * 100 / (positive + 1 + negative)));
+		setOriginalNegative(originalNegative + 1);
 		setActiveDisLike(true);
 		setActiveLike(false);
 		setButtonDisabled(false);
@@ -39,8 +49,8 @@ const RulingList:React.FC<RulingListProps> = ({item}) => {
 	const handleSendVotes = async () => {
 		const data = {
 			votes: {
-				positive: positive.toFixed(1),
-				negative: negative.toFixed(1)
+				positive: originalPositive,
+				negative: originalNegative
 			}
 		};
 		try {

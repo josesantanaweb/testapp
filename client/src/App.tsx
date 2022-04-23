@@ -27,7 +27,7 @@ const App = () => {
 
 	useEffect(() => {
 		getRulings();
-	}, []);
+	}, [view]);
 
 	const getRulings = async () => {
 		try {
@@ -40,7 +40,7 @@ const App = () => {
 
 	const onChangeView = (e: any) => {
 		setView(e.target.value);
-		getRulings();
+		// getRulings();
 	};
 
 	return (
